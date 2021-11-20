@@ -1,8 +1,9 @@
 function rotations(dieArray) {
   if (!dieArray.length) return 0;
-  let totalRotations = [];
+  const totalRotations = [];
+  const dieArraySet = new Set(dieArray);
 
-  dieArray.forEach((basis) => {
+  dieArraySet.forEach((basis) => {
     let rotations = 0;
     dieArray.forEach((dice) => {
       rotations += estimateRotations(dice, basis);
@@ -37,3 +38,5 @@ function rotations(dieArray) {
     return 1;
   }
 }
+
+rotations([1, 5, 6, 2, 3, 1, 2]);
